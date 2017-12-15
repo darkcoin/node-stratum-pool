@@ -45,6 +45,7 @@ Features
 * ✓ __Quark__ (Quarkcoin [QRK])
 * ✓ __X11__ (Darkcoin [DRK], Hirocoin, Limecoin)
 * ✓ __X13__ (MaruCoin, BoostCoin)
+* ✓ __NIST5__ (Talkcoin)
 * ✓ __Keccak__ (Maxcoin [MAX], HelixCoin, CryptoMeth, Galleon, 365coin, Slothcoin, BitcointalkCoin)
 * ✓ __Skein__ (Skeincoin [SKC])
 * ✓ __Groestl__ (Groestlcoin [GRS])
@@ -53,13 +54,13 @@ May be working (needs additional testing):
 * ? *Blake* (Blakecoin [BLC])
 * ? *Fugue* (Fuguecoin [FC])
 * ? *Qubit* (Qubitcoin [Q2C], Myriadcoin [MYR])
-* ? *Hefty1* (Heavycoin [HVC])
 * ? *SHAvite-3* (INKcoin [INK])
+* ? *Sha1* (Sha1coin [SHA], Yaycoin [YAY])
 
 Not working currently:
 * *Groestl* - for Myriadcoin
 * *Keccak* - for eCoin & Copperlark
-
+* *Hefty1* (Heavycoin [HVC])
 
 
 Requirements
@@ -83,7 +84,7 @@ npm update
 Create the configuration for your coin:
 
 Possible options for `algorithm`: *sha256, scrypt, scrypt-jane, scrypt-n, quark, x11, keccak, blake,
-skein, groestl, fugue, shavite3, hefty1, or qubit*.
+skein, groestl, fugue, shavite3, hefty1, qubit, or sha1*.
 
 ```javascript
 var myCoin = {
@@ -276,7 +277,7 @@ var pool = Stratum.createPool({
 
     }
 
-}, function(ip, workerName, password, callback){ //stratum authorization function
+}, function(ip, port , workerName, password, callback){ //stratum authorization function
     console.log("Authorize " + workerName + ":" + password + "@" + ip);
     callback({
         error: null,
